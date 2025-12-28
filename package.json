@@ -1,0 +1,30 @@
+{
+  "name": "akira-bot",
+  "version": "1.0.0",
+  "description": "Modern, ölçeklenebilir ve güvenli Discord bot altyapısı",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "register": "node src/scripts/registerCommands.js",
+    "delete-commands": "node src/scripts/deleteCommands.js",
+    "list-commands": "node src/scripts/listCommands.js"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "discord.js",
+    "slash-commands",
+    "mongodb"
+  ],
+  "author": "devRaikou",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.25.1",
+    "dotenv": "^16.3.1",
+    "mongoose": "^8.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
