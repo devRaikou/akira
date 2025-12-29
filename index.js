@@ -5,7 +5,7 @@
  * 
  * Modern, ölçeklenebilir ve güvenli Discord bot altyapısı
  * 
- * @author Akira Team
+ * @author devRaikou
  * @version 1.0.0
  * @license MIT
  */
@@ -108,5 +108,4 @@ async function startBot() {
 
 startBot();
 
-// Export for potential testing
 module.exports = { client };

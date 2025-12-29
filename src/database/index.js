@@ -10,10 +10,12 @@ const connection = require('./connection');
 const User = require('./schemas/User');
 const Cooldown = require('./schemas/Cooldown');
 const GuildSettings = require('./schemas/GuildSettings');
+const ModerationLog = require('./schemas/ModerationLog');
 
 module.exports = {
     connection,
     User,
     Cooldown,
-    GuildSettings
+    GuildSettings,
+    ModerationLog
 };
