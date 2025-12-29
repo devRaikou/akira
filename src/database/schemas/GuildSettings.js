@@ -82,7 +82,64 @@ const guildSettingsSchema = new mongoose.Schema({
     // Devre dışı bırakılan kanallar (komutlar için)
     disabledChannels: [{
         type: String
-    }]
+    }],
+
+    // ─────────────────────────────────────────────────────────────
+    // ⭐ SEVİYE SİSTEMİ AYARLARI
+    // ─────────────────────────────────────────────────────────────
+    levelSystem: {
+        // Seviye sistemi aktif mi?
+        enabled: { type: Boolean, default: true },
+        
+        // Seviye atlama bildirimi kanalı (null = mesajın gönderildiği kanal)
+        levelUpChannel: { type: String, default: null },
+        
+        // Seviye atlama mesajı
+        levelUpMessage: { 
+            type: String, 
+            default: '🎉 Tebrikler {user}! **{level}**. seviyeye ulaştın!' 
+        },
+        
+        // Mesaj başına XP (min-max arası rastgele)
+        xpPerMessage: {
+            min: { type: Number, default: 15 },
+            max: { type: Number, default: 25 }
+        },
+        
+        // XP kazanma bekleme süresi (saniye) - spam koruması
+        xpCooldown: { type: Number, default: 60 },
+        
+        // XP kazanılamayacak kanallar
+        noXpChannels: [{ type: String }],
+        
+        // XP boost kanalları (channelId: multiplier)
+        boostChannels: [{
+            channelId: { type: String },
+            multiplier: { type: Number, default: 1.5 }
+        }],
+        
+        // Seviye rolleri (level: roleId)
+        levelRoles: [{
+            level: { type: Number },
+            roleId: { type: String },
+            removeOnHigher: { type: Boolean, default: false } // Daha yüksek seviyede kaldır
+        }],
+        
+        // Günlük XP limiti (0 = sınırsız)
+        dailyXpLimit: { type: Number, default: 0 },
+        
+        // Bonus XP rolleri
+        bonusXpRoles: [{
+            roleId: { type: String },
+            bonusPercent: { type: Number, default: 10 } // +%10 bonus
+        }],
+        
+        // Seviye atlama bildirimi gönderilsin mi?
+        announceLevelUp: { type: Boolean, default: true },
+        
+        // Rank kartı gösterilsin mi?
+        showRankCard: { type: Boolean, default: true }
+    }
 }, {
     timestamps: true
 });
